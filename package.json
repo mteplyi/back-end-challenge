@@ -1,0 +1,48 @@
+{
+  "name": "back-end-challenge",
+  "version": "0.0.1",
+  "author": "RedGeekPanda",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
+    "build:prod": "tsc -p tsconfig.build.json",
+    "start:prod": "node dist/main.js",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/passport": "^6.1.0",
+    "@nestjs/platform-fastify": "^6.3.2",
+    "@nestjs/platform-socket.io": "^6.3.2",
+    "@nestjs/platform-ws": "^6.3.2",
+    "@nestjs/typeorm": "^6.1.2",
+    "@nestjs/websockets": "^6.3.2",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.9.1",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "pg": "^7.11.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.2",
+    "rxjs": "^6.3.3",
+    "typeorm": "^0.2.18",
+    "ws": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.10",
+    "@types/passport-http": "^0.3.8",
+    "@types/socket.io": "^2.1.2",
+    "@types/ws": "^6.0.1",
+    "concurrently": "^4.1.0",
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.15.3",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "3.8.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2",
+    "wait-on": "^3.2.0"
+  }
+}

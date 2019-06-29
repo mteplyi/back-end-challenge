@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  https-proxy:
+    image: justsml/ssl-proxy:latest
+    environment:
+      DOMAIN: localhost
+      TARGET_PORT: 3000
+      TARGET_HOST: app
+      SSL_PORT: 3000
+    ports:
+      - 443:443
+      - 3000:3000
+    networks:
+      - frontend
+
+  app:
+    image: redgeekpanda/back-end-challenge
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 1030:1030
+
+  db:
+    image: postgres:11.4-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+    driver: local
+networks:
+  frontend:
+  backend:
