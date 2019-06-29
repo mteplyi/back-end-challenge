@@ -1,4 +1,4 @@
-## Push App to Docker Hub
+## Push App images to Docker Hub
 ```shell
 # Build images
 docker-compose build --compress
@@ -6,7 +6,7 @@ docker-compose build --compress
 docker-compose push
 ```
 
-# Start App using images on Docker Hub
+## Start App using images from Docker Hub
 ```shell
 # Pull images
 docker-compose pull
